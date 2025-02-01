@@ -32,12 +32,19 @@ body {
     justify-content: center;
 }
 
+.movie__list--wrapper {
+    display: flex;
+    width: 100%;
+    
+}
+
 h1, h2, h3, p {
     color: #fff;
 }
 
 .title__search {
     margin: 16px;
+    
 }
 
 .filter__by--year {

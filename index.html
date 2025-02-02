@@ -11,6 +11,7 @@
       <h1 class="logo">Movie Hub</h1>
       <div class="row">
         
+        <div class="title__wrapper">
         <label for="titleSearch">Search by Title:</label>
         <input
           type="text"
@@ -23,23 +24,28 @@
         <select id="yearFilter">
           <option value="">All</option>
         </select>
+    </div>
+
         <div class="wrapper">
+            
             <div class="movie__list--wrapper">
         <div class="movie-list">
+            <div class="movie__wrapper">
           <div class="movie">
             <div class="movie-card">
             <div class="movie-card-container">
-                <div class="discription__top">
-                    <h3>Movie Title</h3>
-                    <p><b>Year:</b></p>
+                <div>
+                    <h3 class="title__year">Movie Title</h3>
+                    <p class="title__year"><b>Year:</b></p>
                 </div>
                 <img
-                  class="poster"
+                  class="poster movie__image movie-card"
                   src="https://m.media-amazon.com/images/M/MV5BNWE5MGI3MDctMmU5Ni00YzI2LWEzMTQtZGIyZDA5MzQzNDBhXkEyXkFqcGc@._V1_SX300.jpg"
                 />
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>

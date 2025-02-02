@@ -32,17 +32,20 @@ async function renderMovies(page) {
     if (movies.length > 0) {
         movieListEl.innerHTML = movies
             .slice(0, resultsPerPage)
-            .map(
-                (movie) => `
-                <div class="movie-card">
-                    <div class="movie-card-container">
-                        <h3>${movie.Title}</h3>
-                        <p><b>Year:</b> ${movie.Year}</p>
-                        <img src="${movie.Poster}" alt="${movie.Title}">
+            .map((movie) => {
+                // Fallback image if the poster is "N/A"
+                const poster = movie.Poster !== "N/A" ? movie.Poster : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svghttps://via.placeholder.com/200x300?text=No+Image";
+
+                return `
+                    <div class="movie-card">
+                        <div class="movie-card-container">
+                            <h3>${movie.Title}</h3>
+                            <p><b>Year:</b> ${movie.Year}</p>
+                            <img src="${poster}" alt="${movie.Title}" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';">
+                        </div>
                     </div>
-                </div>
-            `
-            )
+                `;
+            })
             .join("");
     } else {
         movieListEl.innerHTML = "<p>No movies found</p>";
